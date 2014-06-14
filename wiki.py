@@ -63,7 +63,7 @@ def node(name, command):
 def node_submit(name, command):
     cont = request.forms.get('content')
     db[name] = cont
-    return markup(cont)
+    return redirect("/"+name)
 
 if __name__ == "__main__":
     db = shelve.open("database", writeback=True)
