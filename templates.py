@@ -18,7 +18,7 @@ onclick='document.location=document.location+"/edit";'>
 </a> """
 delme =""" 
 <br><a href="javascript:void(0)"
-onclick="if (confirm('Are you sure you want to save this thing into the database?')) {
+onclick="if (confirm('Are you sure you want to delete this thing from the database?')) {
         document.location=document.location+'/del';
 } else {
         // Do nothing!

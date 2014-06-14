@@ -7,6 +7,7 @@ import re
 #spoljos frankenstein modulez
 import templates
 
+
 def wikify(data):
     out = ""
     keys = dict(zip(map(lambda x: string.lower(x), db.keys()), db.keys()))
@@ -64,6 +65,7 @@ def node_submit(name, command):
     cont = request.forms.get('content')
     db[name] = cont
     return redirect("/"+name)
+
 
 if __name__ == "__main__":
     db = shelve.open("database", writeback=True)
