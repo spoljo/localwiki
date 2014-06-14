@@ -10,3 +10,17 @@ rows="40" cols="120"> {content} </textarea><br><input
 type="submit" value="submit" /></form>
 """
 
+
+editme = """<br>
+<a href="javascript:void(0)" 
+onclick='document.location=document.location+"/edit";'> 
+    Edit article
+</a> """
+delme =""" 
+<br><a href="javascript:void(0)"
+onclick="if (confirm('Are you sure you want to save this thing into the database?')) {
+        document.location=document.location+'/del';
+} else {
+        // Do nothing!
+}">Delete entry</a>
+"""

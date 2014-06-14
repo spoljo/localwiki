@@ -5,6 +5,7 @@ import shelve
 import string
 import re
 #spoljos frankenstein modulez
+import templates
 
 def wikify(data):
     out = ""
@@ -30,13 +31,15 @@ def print_pages():
     html = ""
     for elem in db:
         html += markup(elem) + "<br>"
+    else:
+        html += templates.newentry
     return html
 
 
 @get("/:name")
 def get_page(name):
     if name in db:
-        return markup(db[name])
+        return markup(db[name]) + templates.editme + templates.delme
     else:
         return redirect("/%s/edit"%name)
 
@@ -48,9 +51,7 @@ def node(name, command):
     else:
         cont = ""
     if command == "edit":
-        return str('<form method="POST"><textarea name="content" type="text"'
-                   'rows="40" cols="120">'+cont+'</textarea><br><input '
-                   'type="submit" value="submit" /></form>')
+        return templates.content_form.format(**{"content":cont})
     elif command == "del":
         db.pop(name)
         return str("Deleted: "+name)
