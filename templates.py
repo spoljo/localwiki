@@ -24,3 +24,26 @@ onclick="if (confirm('Are you sure you want to delete this thing from the databa
         // Do nothing!
 }">Delete entry</a>
 """
+
+rootredirjs = """
+<br>
+<div id="timer">
+Redirecting to / in : 5
+</div>
+<script>
+function s(){
+    document.location="/";
+}
+
+var times=4;
+function g(){
+    b = document.getElementById("timer");
+    b.innerText = b.innerText.slice(0,-1) + times;
+    --times;
+}
+
+setInterval(function(){g();},999);
+setTimeout(function(){s();},4000);
+</script>
+
+"""

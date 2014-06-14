@@ -55,7 +55,7 @@ def node(name, command):
         return templates.content_form.format(**{"content":cont})
     elif command == "del":
         db.pop(name)
-        return str("Deleted: "+name)
+        return str("Deleted: "+name)+templates.rootredirjs
     else:
         return "Unknown command: ", command
 
